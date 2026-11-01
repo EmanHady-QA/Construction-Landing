@@ -1,0 +1,129 @@
+/* ===== الألوان والمتغيرات ===== */
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.985 0.008 82);
+  --foreground: oklch(0.28 0.032 160);
+  --card: oklch(0.995 0.004 85);
+  --muted-foreground: oklch(0.46 0.03 150);
+  --brand: oklch(0.45 0.085 158);            /* الأخضر */
+  --brand-foreground: oklch(0.97 0.012 95);
+  --sand: oklch(0.78 0.105 58);              /* البرتقالي الرملي */
+  --sand-foreground: oklch(0.28 0.05 55);
+  --shadow-card: 0 20px 40px -20px oklch(0.45 0.085 158 / 0.28);
+  --font-serif: "Libre Caslon Text", Georgia, serif;
+  --font-sans: "Montserrat", system-ui, sans-serif;
+}
+
+/* ===== Reset بسيط ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+img { display: block; max-width: 100%; }
+button, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; border: 0; background: none; }
+h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.container { max-width: 72rem; margin-inline: auto; padding-inline: 1.5rem; }
+.icon { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow-card); }
+
+/* ===== الأزرار ===== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 0.25rem; font-size: 0.75rem; line-height: 1rem;
+  transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease, background-color 200ms ease;
+}
+.btn:hover { transform: translateY(-1px) scale(1.03); filter: brightness(1.08); box-shadow: var(--shadow-card); }
+.btn:active { transform: scale(0.98); }
+.btn-sand { background: var(--sand); color: var(--sand-foreground); font-weight: 600; padding: 0.5rem 1.25rem; }
+.btn-lg { padding: 0.625rem 1.5rem; }
+.btn-outline {
+  color: var(--brand); font-weight: 500; padding: 0.5rem 1rem;
+  border: 1px solid color-mix(in oklch, var(--brand) 35%, transparent);
+}
+
+/* ===== Hero ===== */
+.hero { position: relative; overflow: hidden; background: var(--brand); color: var(--brand-foreground); }
+.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, var(--brand), color-mix(in oklch, var(--brand) 75%, transparent), color-mix(in oklch, var(--sand) 25%, transparent));
+}
+.hero-grid { position: relative; display: grid; align-items: center; gap: 2.5rem; padding-top: 6rem; padding-bottom: 8rem; }
+.hero h1 { font-family: var(--font-serif); font-size: 3rem; line-height: 1.25; }
+.hero p { margin-top: 1.5rem; font-size: 0.875rem; opacity: 0.8; }
+.hero .btn { margin-top: 2rem; }
+
+/* ===== Features ===== */
+.features { position: relative; margin-top: -3rem; display: grid; gap: 1.25rem; }
+.feature { padding: 1.5rem; }
+.feature-row { display: flex; gap: 1rem; }
+.icon-box {
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 2.75rem; height: 2.75rem; border-radius: 0.875rem; color: var(--brand);
+  background: linear-gradient(to bottom right, color-mix(in oklch, var(--brand) 15%, transparent), color-mix(in oklch, var(--sand) 10%, transparent));
+}
+.feature h3, .service h3 { font-size: 0.875rem; font-weight: 600; color: var(--brand); }
+.feature p, .service p { margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted-foreground); }
+.feature .btn { margin-top: 1.5rem; }
+
+/* ===== Services ===== */
+.services { padding-block: 5rem; }
+.services h2, .work-title { font-family: var(--font-serif); font-size: 1.875rem; line-height: 2.25rem; color: var(--brand); }
+.services-grid { margin-top: 2.5rem; display: grid; gap: 1.25rem; }
+.service { overflow: hidden; }
+.service-media { position: relative; }
+.service-media img { width: 100%; height: 10rem; object-fit: cover; }
+.badge {
+  position: absolute; right: 1.25rem; bottom: -1.5rem;
+  display: flex; align-items: center; justify-content: center;
+  width: 3rem; height: 3rem; border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--card);
+}
+.badge-brand { background: var(--brand); color: var(--brand-foreground); }
+.badge-sand { background: var(--sand); color: var(--sand-foreground); }
+.service-body { padding: 1.5rem; }
+.service-body p { margin-top: 0.75rem; }
+.service-body .btn { margin-top: 1.5rem; }
+
+/* ===== How we work + form ===== */
+.work-wrap { position: relative; }
+.work-tint {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to bottom, color-mix(in oklch, var(--sand) 0%, transparent), color-mix(in oklch, var(--sand) 12%, transparent), color-mix(in oklch, var(--sand) 20%, transparent));
+}
+.work { position: relative; display: grid; gap: 2.5rem; padding-bottom: 5rem; }
+.work-intro { margin-top: 1rem; font-size: 0.75rem; color: var(--muted-foreground); }
+.steps { margin-top: 2.5rem; display: flex; gap: 2rem; }
+.step { flex: 1; min-width: 0; }
+.step-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 3rem; height: 3rem; border-radius: 50%; color: var(--brand);
+  background: color-mix(in oklch, var(--sand) 15%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in oklch, var(--sand) 30%, transparent);
+}
+.step h4 { margin-top: 1rem; font-size: 0.75rem; font-weight: 600; }
+.step p { margin-top: 0.25rem; font-size: 0.75rem; color: var(--muted-foreground); }
+
+.quote-form { border-radius: var(--radius); background: var(--brand); color: var(--brand-foreground); padding: 2rem; }
+.quote-form h2 { font-family: var(--font-serif); font-size: 1.5rem; line-height: 2rem; }
+.form-grid { margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.form-grid input, .form-grid textarea {
+  min-width: 0; padding: 0.5rem 0.75rem; font-size: 0.75rem; color: var(--brand);
+  background: var(--brand-foreground); border-radius: 0.25rem;
+  border: 1px solid color-mix(in oklch, var(--brand-foreground) 25%, transparent);
+}
+.form-grid ::placeholder { color: color-mix(in oklch, var(--brand) 70%, transparent); }
+.form-grid textarea, .form-grid .btn { grid-column: span 2; }
+
+/* ===== شاشات متوسطة وكبيرة (768px+) ===== */
+@media (min-width: 768px) {
+  .hero-grid, .work { grid-template-columns: 1fr 1fr; }
+  .features, .services-grid { grid-template-columns: repeat(3, 1fr); }
+}
