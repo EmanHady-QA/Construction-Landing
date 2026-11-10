@@ -1,15 +1,15 @@
 /* ===== الألوان والمتغيرات ===== */
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.985 0.008 82);
-  --foreground: oklch(0.28 0.032 160);
+  --background: oklch(0.985 0.003 90);
+  --foreground: oklch(0.22 0.04 260);
   --card: oklch(0.995 0.004 85);
   --muted-foreground: oklch(0.46 0.03 150);
-  --brand: oklch(0.45 0.085 158);            /* الأخضر */
-  --brand-foreground: oklch(0.97 0.012 95);
-  --sand: oklch(0.78 0.105 58);              /* البرتقالي الرملي */
-  --sand-foreground: oklch(0.28 0.05 55);
-  --shadow-card: 0 20px 40px -20px oklch(0.45 0.085 158 / 0.28);
+  --brand: oklch(0.27 0.06 260);            
+  --brand-foreground: oklch(0.97 0.01 90);
+  --sand: oklch(0.7 0.11 75);              
+  --sand-foreground: oklch(0.99 0 0);
+  --shadow-card: 0 20px 40px -20px oklch(0.27 0.06 260 / 0.25);
   --font-serif: "Libre Caslon Text", Georgia, serif;
   --font-sans: "Montserrat", system-ui, sans-serif;
 }
